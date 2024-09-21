@@ -1,0 +1,999 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+/* base styles */
+* {
+  margin: 0;
+  font-family: "Quicksand";
+  color: #333;
+  overscroll-behavior-y: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.loading{
+  background-color: none;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 50vh;
+  z-index: 999999999;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.loading img{
+  width: 150px;
+  height: 150px;
+  
+}
+body{
+  overflow: hidden;
+}
+*::-webkit-scrollbar {
+  display: none;
+}
+
+button:focus{
+  outline: none;
+}
+
+textarea:focus{
+  outline: none;
+}
+
+input:focus{
+  outline: none;
+}
+
+.content {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+}
+.App{
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  position: relative;
+  background-color: #333;
+  -webkit-user-select: none; /* Safari */        
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
+ 
+}
+
+.desktopChatMain {
+  display: grid;
+  grid-template-columns: 30% 70%;
+  grid-template-rows: 1fr 1fr;
+  gap: 0px 0px;
+  height: 100%;
+  grid-template-areas:
+    ". ."
+    ". .";
+}
+
+/* ProfilePage #################################################*/
+.backButton{
+  width: 50px;
+  height: 40px;
+  transform: rotate(90deg);
+}
+
+.backToDashBTN{
+  text-decoration: none;
+  background-color: #075E54;
+  align-self: center;
+  display: flex;
+  flex-direction: row;
+  border-radius: 15px;
+  padding: 10px 20px 10px 5px;
+}
+
+.backToDashBTN p{
+  color: white;
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.profilePage{
+  color: white;
+  width: 100%;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.profilePage h1{
+  color: white;
+  font-size: 30px;
+  text-align: center;
+  padding: 15px;
+}
+
+.profilePage form{
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profilePage input{
+  width: 60%;
+  margin: 15px 15px 15px 15px;
+  font-weight: 800;
+  font-size: 15px;
+  border-radius: 3px;
+  padding: 10px;
+}
+.profilePage h2{
+  color: white;
+}
+
+.profilePage .profilePhoto{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+}
+.profilePage .profilePhoto img{
+  width: 115px;
+  height: 115px;
+  margin-bottom: 10px;
+}
+/* NewChat ######################################################*/
+
+.tagHolder{
+  margin: 20px 0px 40px 0px;
+  display: flex;
+  max-width: 100%;
+  flex-wrap: wrap;
+}
+
+.chatContext{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.chatContext h2{
+  color: white;
+  margin: 20px;
+}
+.contactTag{
+  color: white;
+  font-size: 15px;
+  background-color: #075E54;
+  border-radius: 15px;
+  padding: 10px;
+  margin: 10px;
+}
+
+.newChat{
+  background-color: rgba(0,0,0,.8);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 2;
+
+  display: none;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.5fr 1fr 0.8fr 0.7fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "."
+    "."
+    "."
+    ".";
+}
+
+.newChat .contactSearch{
+  background-color: none;
+  padding-top: 9vh;
+}
+
+.contactSearch input{
+  width: 80%;
+  height: 18px;
+  margin: 15px 0px 15px 2.5%;
+  border-radius: 10vh 0vh 0vh 10vh;
+  border: none;
+  padding: 10px 10px 15px 10px;
+  font-weight: 500;
+  color: white;
+  font-size: 18px;
+  overflow-wrap: normal;
+  background-color: #075E54;
+}
+
+.chatContext input{
+  width: 75%;
+  height: 18px;
+  border-radius: 10vh;
+  border: none;
+  padding: 10px 10px 15px 10px;
+  font-weight: 500;
+  color: white;
+  font-size: 18px;
+  overflow-wrap: normal;
+  background-color: #075E54;
+  text-align: center;
+}
+
+.contactSearch button{
+  height: 43px;
+  width: 9%;
+  border-radius: 0% 50% 50% 0%;
+  border: none;
+  padding: 0px;
+  margin: 0px;
+  position: relative;
+  top: 1px;
+  background-color: #075E54;
+}
+.newChat .chatFormation{
+  background-color: none;
+  pointer-events: none;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+
+.newChat .startChatting{
+  width: 50%;
+  margin: auto;
+  font-size: 18px;
+  font-weight: 800;
+  height: 50px;
+  color: white;
+  background-color: #075E54;
+  border-radius: 10vh;
+  border: none;
+  padding: 5px;
+  transition-duration: 1000ms;
+}
+
+.dragOverlay{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  bottom: 0;
+  background-color: none;
+  z-index: 50;
+  pointer-events: none;
+  display: none;
+}
+/* Message ######################################################*/
+
+.message {
+  margin: 0px 10px 10px 10px;
+  padding-top: 10px;
+  background-color: #333;
+  max-width: 80%;
+  scroll-snap-align: end;
+  
+}
+
+.message .messageContent{
+  padding: 15px;
+  color: white;
+}
+
+.message .time{
+  text-align: end;
+  padding: 0px 15px 15px 15px;
+  color: white;
+}
+
+.message .name{
+  color: limegreen;
+  font-weight: 700;
+  font-size: 14px;
+  margin: 10px 10px 5px 15px ;
+}
+
+
+.sent .name{
+  display: none;
+}
+.received{
+  border-radius: 0px 15px 15px 25px;
+  margin-right: auto;
+}
+
+.sent{
+  border-radius: 15px 0px 25px 15px;
+  background-color: darkslategray;
+  margin-left: auto;
+}
+
+.messageInput{
+  width: 70%;
+  height: 18px;
+  margin: 15px;
+  border-radius: 10vh;
+  border: none;
+  padding: 10px 15px 15px 15px;
+  font-weight: 500;
+  color: white;
+  font-size: 18px;
+  overflow-wrap: normal;
+  background-color: #075E54;
+}
+
+.sendMessageButton{
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  background-color: #075E54;
+  
+}
+
+.sendMessageButton img{
+  padding-left: 5px;
+  height: 30px;
+  width: 30px;
+}
+
+.sendMessage{
+  position: absolute;
+  bottom: 0vh;
+  padding-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #333;
+  height: fit-content;
+  width: 100%;
+}
+
+.tempHolder{
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  align-items: center;
+  width: 100%;
+}
+.keyboardPadding{
+  background-color: #333;
+  height: 7vh;
+  width: 100%;
+}
+/* Chat Item ######################################################*/
+.chatItem:hover{
+  background-color: #075E54;
+}
+.chatItem img{
+  border-radius: 50%;
+  max-height: 55px;
+  max-width: 55px;
+}
+
+.chatItem p{
+  color: white;
+}
+.chatItem .date{
+  font-size: 10px;
+  margin-left: auto;
+}
+
+.chatItem .name{
+  font-size: 18px;
+  font-weight: 700;
+  margin-right: auto;
+}
+
+.chatItem .previewText{
+  font-size: 15px;
+  color: lightgray;
+  margin-right: auto;
+}
+.chatItem {
+  pointer-events: all;
+  height: 8vh;
+  border-bottom: darkslategrey solid 1px;
+  padding: 20px;
+  background-color: #333;
+  color: white;
+  display: grid;
+  grid-template-columns: 20% 80%;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    ". chatInfo";
+}
+
+.chatItem:last-of-type{
+  padding-bottom: 50px;
+}
+.chatInfo {
+  border: none;
+  background: none;
+  padding-left: 0px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "nameAndDate"
+    ".";
+  grid-area: chatInfo;
+}
+.nameAndDate {
+  display: grid;
+  grid-template-columns: 80% 20%;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    ". .";
+  grid-area: nameAndDate;
+}
+/* Swipe JS ######################################################*/
+.dashButtons .selected{
+  background-color:lightslategray;
+}
+
+.dashButtons{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    ". . .";
+  height: 5vh;
+}
+
+.dashButtons button{
+  padding: 2px 10px 12px 10px;
+  border: none;
+  background-color: #075E54;
+  font-weight: 700;
+  font-size: 15px;
+}
+.dashboardWindow .swipe{
+  margin-top: 0;
+}
+.swipe {
+  pointer-events: none;
+  overflow: hidden;
+  visibility: hidden;
+  position: relative;
+}
+.swipe-wrap {
+  overflow: hidden;
+  position: relative;
+}
+.swipe-wrap > div {
+  float: left;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+/* Chat View######################################################*/
+.chatView {
+  background-color: lightblue;
+  height: 79vh;
+  padding-top: 1vh;
+}
+
+.chatView .messages{
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  height: 68vh;
+}
+
+.chatView::-webkit-scrollbar{
+  display: none;
+}
+/* Chat List######################################################*/
+.chatList {
+  background-color: #333;
+  overflow-y: scroll;
+  height: 80vh;
+}
+
+.chatList::-webkit-scrollbar {
+  display: none;
+}
+/* Contact Bar######################################################*/
+.contactsBar .minimize{
+  pointer-events: none;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  background-color:#333;
+  border: none;
+  font-weight: 700;
+  height: 3vh;
+}
+
+.minimize img{
+  width: 3vh;
+  height: 3vh;
+  transition-duration: 500ms;
+}
+.contactsHolder::-webkit-scrollbar {
+  display: none;
+}
+.contactsHolder {
+  pointer-events: all;
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  display: flex;
+  overflow-x: scroll;
+  background-color: #333;
+  height: 12vh;
+  
+}
+.contactsBar {
+  top: -15vh;
+  left: 0;
+  width: 100%;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  overflow-x: hidden;
+  height: 15vh;
+  z-index: 10;
+  transition-duration: 500ms;
+}
+
+.miniContact img{
+  pointer-events: none;
+  padding-top: 5vh;
+  margin: 0px 5px 0px 5px;
+  border-radius: 15px;
+  width: 6vh;
+  height: 6vh;
+}
+
+.miniContact{
+  pointer-events: all;
+  z-index: 50;
+  
+}
+
+.dragOverlay .miniContact{
+  width: 70px;
+  height: 70px;
+  margin: 0px;
+  padding: 0px;
+  position: absolute;
+  
+}
+
+.chatFormation .miniContact{
+  transition-duration: 900ms;
+  width: 100px;
+  height: 100px;
+  margin-left: -50px;
+}
+
+.chatFormation .miniContact:first-of-type{
+  margin-left: 0px;
+}
+
+.chatFormation img{
+  width: 100px;
+  height: 100px;
+  padding: 0px;
+  margin: 0px;
+}
+/*  Dashboard############################################# */
+  .dashboardWindow {
+    max-width: 1000px;
+    margin: auto;
+    margin-top: 3vh;
+    height: 85vh;
+    position: relative;
+  }
+/*  Navbar Signed In############################################# */
+
+.navbarLoggedIn{
+  z-index: 9999;
+}
+
+.navbarLoggedIn .profilePicture{
+  height: 40px;
+  width: 40px;
+}
+
+.navbarLoggedIn .settingsPicture{
+  width:  20px;
+  height: 20px;
+
+}
+
+.navbarLoggedIn a{
+  margin: auto;
+  vertical-align: middle;
+}
+/*  Navbar############################################# */
+
+.navbar {
+  position: relative;
+  padding: 10px;
+  padding-bottom: 20px;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  background-color: #075E54;
+  height: 40px;
+  width: 100%;
+  z-index: 90;
+}
+.navbar h1 {
+  pointer-events: none;
+  color:white;
+  padding-top: 26px;
+  font-size: 26px;
+}
+.navbar .links {
+  padding-top: 15px;
+  display: block;
+  margin-left: auto;
+  margin-right: 20px;
+  height: 100%;
+}
+.navbar a {
+  margin-left: 16px;
+  text-decoration: none;
+  padding: 6px;
+  color: white;
+}
+
+/* Login Page########################################## */
+.login{
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 80%;
+}
+.login .loginWindow {
+  box-shadow: 5px 8px 5px 2px rgba(0,0,0,0.51);
+  -webkit-box-shadow: 5px 8px 5px 2px rgba(0,0,0,0.51);
+  -moz-box-shadow: 5px 8px 5px 2px rgba(0,0,0,0.51);
+  border-radius: 10px;
+  padding: 30px;
+  border: #075E54 solid;
+}
+
+.login .center-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login input {
+  font-size: 15px;
+  font-weight: 700;
+  width: 100%;
+  padding: 5px;
+  border-radius: 15px;
+}
+
+.login h1 {
+  text-align: center;
+  width: 100%;
+  padding-bottom: 15px;
+  margin-bottom: 10px;
+  color: white;
+  border-bottom: #075E54 solid;
+}
+
+.login h2 {
+  text-align: center;
+  color: white;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.login .buttonHolder{
+  width: 100%;
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+
+.login button{
+  color: white;
+  border-radius: 5px;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 15px;
+  margin: 5px;
+  background-color: #075E54;
+}
+
+.loginWindow .error{
+  background-color: red;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+/* Sign Up ###############################*/
+.signupWindow #signUp{
+  color: white;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 15px;
+  margin: 15px;
+  background-color: #075E54;
+}
+
+.signupWindow{
+  padding: 50px !important; 
+}
+
+.signupWindow form{
+  color: white !important;
+
+}
+.loginWindow #login{
+  color: white;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 15px;
+  background-color: #075E54;
+}
+
+.signupWindow .error{
+  background-color: red;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+/* Dropdown Button */
+.dropbtn {
+  background-color: rgba(0,0,0,0);;
+  color: white;
+  border: none;
+  margin-left: 10px;
+  transition-duration: 200ms;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0%;
+  margin-top: 20px;
+  background-color: #075E54;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  border-radius: 0px 0px 0px 15px;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: white;
+  font-weight: 500;
+  padding: 12px 16px;
+  text-decoration: none;
+  border-top: rgba(0,0,0,0.2) solid;
+  border-radius: 15px 0px 0px 15px;
+  display: block;
+  margin: 0px;
+}
+
+.dropdown-content button {
+  background-color: rgba(0,0,0,0.0);
+  border: none;
+  color: white;
+  font-weight: 500;
+  padding: 12px 16px;
+  text-decoration: none;
+  border-top: rgba(0,0,0,0.2) solid;
+  border-radius: 15px 0px 0px 15px;
+  display: block;
+  margin: 0px;
+}
+
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: lightslategray;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+  transform: scale(1.8)  rotate(360deg);
+}
+
+
+/* Add Contact ###################################################*/
+
+.addContact{
+  position: absolute;
+  height: 100vh;
+  top: 0vh;
+  width: 100vw;
+  background-color: rgba(0,0,0,0.7);;
+  z-index: 500;
+  display: flex;
+  justify-content: center;
+}
+
+.addContact .addContactWindow{
+  background-color: #333;
+  width: 90%;
+  position: relative;
+  top: 25%;
+  height: fit-content;
+  border-radius: 15px;
+  pointer-events: all;
+}
+
+.addContactWindow h2{
+  color: white;
+  text-align: center;
+  padding: 15px;
+}
+.contactSearchForm{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0px 30px 0px;
+}
+.contactSearchBar{
+  width: 80%;
+  height: 18px;
+  border-radius: 10vh;
+  border: none;
+  padding: 15px;
+  font-weight: 500;
+  color: white;
+  font-size: 18px;
+  overflow-wrap: normal;
+  background-color: #075E54;
+  margin: 15px 0px 25px 0px;
+}
+
+.contactSearchSubmit{
+  width: fit-content;
+  border-radius: 10px;
+  border: none;
+  padding: 10px;
+  font-weight: 500;
+  color: white;
+  font-size: 18px;
+  overflow-wrap: normal;
+  background-color: #075E54;
+}
+
+.contactFoundWindow{
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.foundContactPicture{
+  position: relative;
+  margin-top: -70px;
+}
+
+.foundContactPicture img{
+  width: 200px;
+  height: 200px;
+  border-radius: 25%;
+}
+
+.sendContactRequest{
+  width: fit-content;
+  border-radius: 10px;
+  border: none;
+  margin-top: 20px;
+  padding: 10px 25px 10px 25px;
+  font-weight: 500;
+  color: white;
+  font-size: 18px;
+  overflow-wrap: normal;
+  background-color: #075E54;  
+}
+
+.contactFoundWindow h2{
+  font-size: 20px;
+}
+
+/* Contact Requests #################################################################*/
+.contactRequestItem{
+  height: 10vh;
+  border-bottom: darkslategrey solid 1px;
+  padding: 20px;
+  background-color: rgb(68, 126, 29);
+  color: white;
+  display: grid;
+  grid-template-columns: 20% 80%;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    ". chatInfo";
+}
+.contactRequestInfo{
+  border: none;
+  background: none;
+  padding-left: 0px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.8fr 1.2fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "nameAndDate"
+    ".";
+  grid-area: chatInfo;
+}
+
+.contactRequestItem img{
+  border-radius: 50%;
+  max-height: 55px;
+  max-width: 55px;
+}
+
+.contactRequestItem p{
+  color: white;
+}
+.contactRequestItem .date{
+  font-size: 10px;
+  margin-left: auto;
+}
+
+.contactRequestItem .name{
+  font-size: 18px;
+  font-weight: 700;
+  margin-right: auto;
+}
+
+.contactRequestItem .previewText{
+  font-size: 15px;
+  color: lightgray;
+  margin-right: auto;
+  margin-bottom: 5px;
+}
+
+.textAndButtons{
+  display: flex;
+  flex-direction: column;
+}
+
+.acceptDeclineButtons{
+  width: 70%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.acceptDeclineButtons button{
+  border-radius: 15px;
+  margin-top: 5px;
+  padding: 3px 10px 3px 10px;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.acceptDeclineButtons .accept{
+  background-color: limegreen;
+}
+
+.acceptDeclineButtons .decline{
+  background-color: red;
+}
